@@ -1,4 +1,15 @@
 
+// Tuning and Behavior Parameters
+
+// Constants
+const int32_t cnControlPeriod_us = 50000; // 50msec = 20Hz control
+
+// Functions
+int32_t GetSensorMeasurement_CountsX16k(int32_t inMeasurementTime_ms, int32_t inDelayBetweenMeasurements_us);
+void PIDController(void); // Work on globals for now
+void GetNextMotorCommand(void); // Calculate motor command based on PID output and artificial momentum, dampening, etc
+void SetSafeMotorSpeed(void);  // Final motor command, applying any shutdown commands
+
 //Joystick Pins
 int x_key = A0;                                               
 int y_key = A1;                                               
